@@ -36,6 +36,8 @@ public class Application {
         //все события
         System.out.println(operaHouse.getAllEvents());
 
+        operaHouse.buyTheTicket(butterfly, 3);
+
         //покупка и возврат билетов
         operaHouse.buyTheTickets(figaro, 10, 11, 12, 13);
         System.out.println(operaHouse.getEvent(figaro.getName()));

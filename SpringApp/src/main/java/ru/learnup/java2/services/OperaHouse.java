@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import ru.learnup.java2.annotations.Notifable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ public class OperaHouse {
         return null;
     }
 
+    @Notifable
     public Ticket buyTheTicket(OperaEvent operaEvent, int seatNumber) {
         List<Ticket> freeTickets = operaEvent.getAllFreeTickets();
         for (Ticket ticket : freeTickets) {
@@ -55,6 +57,7 @@ public class OperaHouse {
         return null;
     }
 
+    @Notifable
     public List<Ticket> buyTheTickets(OperaEvent operaEvent, int... seatNumbers) {
         List<Ticket> freeTickets = operaEvent.getAllFreeTickets();
         List<Ticket> boughtTickets = new ArrayList<>();
