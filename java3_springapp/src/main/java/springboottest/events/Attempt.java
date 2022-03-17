@@ -1,7 +1,11 @@
 package events;
 
 import org.springframework.context.ApplicationEvent;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+//@Component
+//@Scope(value = "prototype")
 public class Attempt extends ApplicationEvent {
 
     private final int num;

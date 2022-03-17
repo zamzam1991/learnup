@@ -5,8 +5,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Service;
 import java.util.Locale;
 
+@Service
 public class GuessingGame implements ApplicationListener<Attempt>, ApplicationContextAware {
 
     private ConfigurableApplicationContext ctx;
@@ -22,11 +24,11 @@ public class GuessingGame implements ApplicationListener<Attempt>, ApplicationCo
     }
 
     @Override
-    public void onApplicationEvent(Attempt event) {
-        if (event.getNum() == getRandomInt()) {
-            System.out.println(ctx.getMessage("equality", null, locale) + event.getNum());
+    public void onApplicationEvent(Attempt attempt) {
+        if (attempt.getNum() == getRandomInt()) {
+            System.out.println(ctx.getMessage("equality", null, locale) + attempt.getNum());
             ctx.close();
-        } else if (event.getNum() > getRandomInt())
+        } else if (attempt.getNum() > getRandomInt())
             System.out.println(ctx.getMessage("less", null, locale));
          else
             System.out.println(ctx.getMessage("more", null, locale));
