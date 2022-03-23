@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
+import springboottest.annotations.LogMethod;
+
 import java.util.Locale;
 
 @Component
@@ -13,6 +15,7 @@ public class PublisherOfAttempts implements ApplicationContextAware {
     private ConfigurableApplicationContext ctx;
     private Locale locale = Locale.getDefault();
 
+    @LogMethod
     public void publishAttempt(int num) {
         ctx.publishEvent(new Attempt(num));
     }

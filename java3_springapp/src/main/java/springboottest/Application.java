@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @SpringBootApplication
-public class Application {
+public class
+Application {
 
     //private static final Logger log = LoggerFactory.getLogger(Application.class);
 
